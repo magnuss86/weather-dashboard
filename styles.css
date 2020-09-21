@@ -1,0 +1,14 @@
+.header {
+    text-align: center;
+    background-color: black;
+    font-weight: 300;
+    color: cornsilk;
+}
+
+#cityList {
+   background-color: salmon;
+   border-bottom: firebrick 5px;
+   border-right: firebrick 5px;
+   border-top: firebrick 5px;
+   border-left: firebrick 5px;
+}
