@@ -5,6 +5,10 @@ var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&ap
 var query5Day = "https://api.openweathermap.org/data/2.5/forecast?q=Seattle&appid=c56b8c5094d7dabc849248635865a867"
 var citySelection = []  
 var cityName 
+var cityLat
+var cityLon
+cityLat = $("city-lat")
+cityLon = $("city-lon")
     
 $("#find-city").on('click', function(cityLocate){
   cityLocate.preventDefault()
@@ -12,11 +16,12 @@ $("#find-city").on('click', function(cityLocate){
   // console.log($('#city-input').val());
     // var $windSpeed = $("city-wind-speed")
     var $date = $('#date')
-  //   var $temp = $('')
   
   
   
+ 
 
+// API call for current weather conditions
 
    $.ajax({
    url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=c56b8c5094d7dabc849248635865a867`,
@@ -31,6 +36,10 @@ $("#find-city").on('click', function(cityLocate){
    var currentDescr = response.weather[0].description
    var temp = response.main.temp
    temp = ((response.main.temp)*1.8 - 459.67)
+   var cityLat = response.coord.lat
+   var cityLon = response.coord.lon
+  //  cityLat = $("city-lat")
+  //  cityLon = $("city-lon")
   //  console.log(temp);
   console.log(windSpeed);
    
@@ -40,6 +49,22 @@ $("#find-city").on('click', function(cityLocate){
    $("#city-humidity").text("Humidity: " + humidity + "%")
   // //  console.log(humidity);
   $("#city-wind-speed").text("Wind Speed: " + windSpeed)
+
+  $.ajax({
+    url: `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&appid=c56b8c5094d7dabc849248635865a867`,
+    method: "GET"
+    }).then(function(response) {
+    console.log(response);
+    var uvIndex = response.daily[0].uvi
+    $("#city-uv-index").text("UV Index: " + uvIndex)
+  
+    
+
+
+
+  
+
+  
 
 
   })
@@ -99,5 +124,4 @@ $("#find-city").on('click', function(cityLocate){
     // var tempF = (response.main.temp - 273.15) * 1.80 + 32;
     // console.log(temp);
    
-
-  
+})
