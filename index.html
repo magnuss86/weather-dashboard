@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<title>Weather App</title>
+</head>
+
+<body>
+  <header class="header">Weather Dashboard</header>
+  <div class="container">
+    <div class="row" id="row-one">
+      <div class="col-3" id="col-one">
+        <form id="city-choice">
+          <label for="city-choice">Search for a City!</label>
+          <input type="text" id="city-input">
+          <br>
+          <input id="find-city" type="submit" value="City Search">
+        </form>
+      
+        <div id='history'></div>
+      </div>
+      <div class='col-9' id='col-two'>
+        <div id="city-forecast">
+          <div id='city-forecast-header' class="row ">
+            <div id="city-name"></div>
+            <div id="date"></div>
+            <div id="current-condition-icon"></div>
+          </div>
+          <div id="city-temperature" class="row">Temperature:</div>
+          <div id="city-humidity" class="row">Humidity: </div>
+          <div id="city-wind-speed" class="row">Wind Speed: </div>
+          <div id="city-uv-index" class="row">UV Index: </div>
+        </div>
+
+        <div id="five-day-forecast" class='col'>
+          <h2>5-Day Forecast</h2>
+          <div id="5-day-forecast-cards"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+    
+
+
+
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-
-    <title>Weather App</title>
-</head>
-<body>
-<header class="header">Weather Dashboard</header>
-<div class="container">
-    <form id="city-choice">
-      <label for="city-choice">Search for a City!</label>
-      <input type="text" id="city-input">
-      <br>
-    
-    </form>
-</div>
-
-
-   
 </body>
+
 </html>

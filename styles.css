@@ -12,3 +12,15 @@
    border-top: firebrick 5px;
    border-left: firebrick 5px;
 }
+
+#col-one{
+    border: 5px solid black;
+    height: 50h;
+ 
+}
+
+#col-two {
+    border: 5px solid purple;
+    height: 50vh;
+
+}
