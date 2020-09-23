@@ -18,7 +18,7 @@ $("#find-city").on('click', function(cityLocate){
     var $date = $('#date')
   
   
-  
+   
  
 
 // API call for current weather conditions
@@ -37,6 +37,8 @@ $("#find-city").on('click', function(cityLocate){
    var temp = response.main.temp.toFixed(0)
   //  temp = ((response.main.temp)*1.8 - 459.67).toFixed(0)
    var cityLat = response.coord.lat
+  //  console.log(cityLat);
+  //  console.log(cityLon);
    var cityLon = response.coord.lon
   //  cityLat = $("city-lat")
   //  cityLon = $("city-lon")
@@ -44,27 +46,58 @@ $("#find-city").on('click', function(cityLocate){
   console.log(windSpeed);
    
    $('#city-name').text("City: " + response.name)
-   $("#date").text("Date: " + response.dt)
+   $("#date").text(moment().format("M-D-Y")); 
    $("#city-temperature").text("Temp: " + temp)
    $("#city-humidity").text("Humidity: " + humidity + "%")
   // //  console.log(humidity);
   $("#city-wind-speed").text("Wind Speed: " + windSpeed)
 
   $.ajax({
-    url: `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&appid=c56b8c5094d7dabc849248635865a867`,
+    url: `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=c56b8c5094d7dabc849248635865a867`,
     method: "GET"
     }).then(function(response) {
     console.log(response);
     var uvIndex = response.daily[0].uvi
     $("#city-uv-index").text("UV Index: " + uvIndex)
 
-    var humidity = response.daily[1].humidity
+    //set humidity response return 
+
+    var humidity1 = response.daily[1].humidity;
+    var humidity2 = response.daily[2].humidity;
+    var humidity3 = response.daily[3].humidity;
+    var humidity4 = response.daily[4].humidity;
+    var humidity5 = response.daily[5].humidity;
+
+    // print humiduty response for five days
+
+    $("#card-1-humid").text("Humidity: " + humidity1 + "%");
+    $("#card-2-humid").text("Humidity: " + humidity2 + "%");
+    $("#card-3-humid").text("Humidity: " + humidity3 + "%");
+    $("#card-4-humid").text("Humidity: " + humidity4 + "%");
+    $("#card-5-humid").text("Humidity: " + humidity5 + "%");
+
+    // temperature variable response
+      var temp1 = response.daily[1].temp.max
+      var temp2 = response.daily[2].temp.max
+      var temp3 = response.daily[3].temp.max
+      var temp4 = response.daily[4].temp.max
+      var temp5 = response.daily[5].temp.max
+
+      // print temp response for five days
+
+      $("#card-1-temp").text("Temp: " + temp1);
+      $("#card-2-temp").text("Temp: " + temp2);
+      $("#card-3-temp").text("Temp: " + temp3);
+      $("#card-4-temp").text("Temp: " + temp4);
+      $("#card-5-temp").text("Temp: " + temp5);
+    
+
     var date = response.daily[1].dt
         // date = moment.unix(date).format("MM/DD/YYYY");
         date = moment().format("MMM Do YY");
-    console.log(date);
-    console.log(humidity);
-  console.log(date);
+  //   console.log(date);
+  //   console.log(humidity);
+  // console.log(date);
     
 
 
