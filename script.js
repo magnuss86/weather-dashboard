@@ -1,7 +1,7 @@
 // console.log("hello");
        
        
-var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=c56b8c5094d7dabc849248635865a867`
+var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=c56b8c5094d7dabc849248635865a867`
 var query5Day = "https://api.openweathermap.org/data/2.5/forecast?q=Seattle&appid=c56b8c5094d7dabc849248635865a867"
 var citySelection = []  
 var cityName 
@@ -24,7 +24,7 @@ $("#find-city").on('click', function(cityLocate){
 // API call for current weather conditions
 
    $.ajax({
-   url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=c56b8c5094d7dabc849248635865a867`,
+   url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=c56b8c5094d7dabc849248635865a867`,
    method: "GET"
    }).then(function(response) {
    console.log(response);
@@ -34,8 +34,8 @@ $("#find-city").on('click', function(cityLocate){
    var humidity = response.main.humidity
    var windSpeed = response.wind.speed
    var currentDescr = response.weather[0].description
-   var temp = response.main.temp
-   temp = ((response.main.temp)*1.8 - 459.67)
+   var temp = response.main.temp.toFixed(0)
+  //  temp = ((response.main.temp)*1.8 - 459.67).toFixed(0)
    var cityLat = response.coord.lat
    var cityLon = response.coord.lon
   //  cityLat = $("city-lat")
@@ -60,11 +60,11 @@ $("#find-city").on('click', function(cityLocate){
 
     var humidity = response.daily[1].humidity
     var date = response.daily[1].dt
-
-    //     date = moment.unix(date).format("MM/DD/YYYY");
+        // date = moment.unix(date).format("MM/DD/YYYY");
+        date = moment().format("MMM Do YY");
     console.log(date);
     console.log(humidity);
-  
+  console.log(date);
     
 
 
