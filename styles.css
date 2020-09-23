@@ -14,13 +14,56 @@
 }
 
 #col-one{
-    border: 5px solid black;
+    border: 2px solid grey;
     height: 50h;
  
 }
 
 #col-two {
-    border: 5px solid purple;
+    border: 2px solid grey;
     height: 50vh;
 
+}
+
+/* #col-three {
+    border: 5px solid salmon;
+    height: 50vh;  
+} */
+
+
+/* #col-four {
+    border: 5px solid black;
+    height: 50vh;   
+} */
+
+/* #col-four {
+    border: 5px solid black;
+    height: 50vh;   
+}
+
+#col-five {
+    border: 5px solid black;
+    height: 50vh;   
+}
+
+#col-six {
+    border: 5px solid black;
+    height: 50vh;   
+}
+
+#col-seven {
+    border: 5px solid black;
+    height: 50vh;   
+}
+
+#col-eight {
+    border: 5px solid black;
+    height: 50vh;   
+} */
+.card-body {
+    width: 100%;
+    padding: 0;
+}
+.card {
+    width: fit-content;
 }

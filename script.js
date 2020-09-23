@@ -57,6 +57,13 @@ $("#find-city").on('click', function(cityLocate){
     console.log(response);
     var uvIndex = response.daily[0].uvi
     $("#city-uv-index").text("UV Index: " + uvIndex)
+
+    var humidity = response.daily[1].humidity
+    var date = response.daily[1].dt
+
+    //     date = moment.unix(date).format("MM/DD/YYYY");
+    console.log(date);
+    console.log(humidity);
   
     
 
