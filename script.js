@@ -35,22 +35,18 @@ $("#find-city").on('click', function(cityLocate){
    var windSpeed = response.wind.speed;
    var currentDescr = response.weather[0].description;
    var temp = response.main.temp.toFixed(0);
-  //  temp = ((response.main.temp)*1.8 - 459.67).toFixed(0)
    var cityLat = response.coord.lat;
-  //  console.log(cityLat);
-  //  console.log(cityLon);
    var cityLon = response.coord.lon;
-  //  cityLat = $("city-lat")
-  //  cityLon = $("city-lon")
-  //  console.log(temp);
+   var mainIcon = response.weather[0].icon
+ 
   console.log(windSpeed);
    
    $('#city-name').text("City: " + response.name);
    $("#date").text(moment().format("M-D-Y")); 
    $("#city-temperature").text("Temp: " + temp)
    $("#city-humidity").text("Humidity: " + humidity + "%");
-  // //  console.log(humidity);
-  $("#city-wind-speed").text("Wind Speed: " + windSpeed.toFixed(0));
+   $("#image-1").text(mainIcon)
+   $("#city-wind-speed").text("Wind Speed: " + windSpeed.toFixed(0));
 
   $.ajax({
     url: `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=c56b8c5094d7dabc849248635865a867`,

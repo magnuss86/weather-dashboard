@@ -17,50 +17,19 @@
     justify-content: right;
 }
 
-#col-one{
+#col-one, #col-two{
     border: 2px solid grey;
     height: 50h;
     background-color: rgb(0, 183, 255);
  
 }
 
-#col-two {
-    border: 2px solid grey;
-    height: 50vh;
-    background-color: rgb(0, 238, 255);
 
-}
-
-#col-three {
-    background-color: aqua; 
-}
-
-
-#col-four {
-    background-color: aqua; 
-     
-}
-
- #col-four {
-    background-color: aqua; 
-} 
-
-#col-five {
-    background-color: aqua; 
-}
-
-#col-six {
-    background-color: aqua; 
-}
-
-#col-seven {
+.col-2 {
     background-color: aqua;  
 }
 
-#col-eight {
-    background-color: aqua;
-    
-} 
+
 .card-body {
    background-color: rgb(0, 255, 170); 
    border-style: double;
