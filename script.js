@@ -91,14 +91,19 @@ $("#find-city").on('click', function(cityLocate){
       $("#card-4-temp").text("Temp: " + temp4);
       $("#card-5-temp").text("Temp: " + temp5);
 
+      $("#card-1-date").text(moment().add(1, "d")); 
+      $("#card-2-date").text(moment().add(2, "d")); 
+      $("#card-3-date").text(moment().add(3, "d")); 
+      $("#card-4-date").text(moment().add(4, "d")); 
+      $("#card-5-date").text(moment().add(5, "d")); 
       // var imgIcon = [
 
       // ]
-    
-
+      // (moment().format("M-D-Y"))
+      // moment().add(1, "d"); 
     var date = response.daily[1].dt;
         // date = moment.unix(date).format("MM/DD/YYYY");
-        date = moment().format("MMM Do YY");
+        // date = moment().format("MMM Do YY");
   //   console.log(date);
   //   console.log(humidity);
   // console.log(date);

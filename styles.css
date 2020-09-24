@@ -69,3 +69,7 @@
 .card {
     width: fit-content;
 }
+
+.card-img-top {
+    background-color: cadetblue;
+}
