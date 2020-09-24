@@ -13,56 +13,58 @@
    border-left: firebrick 5px;
 }
 
+#image-one {
+    justify-content: right;
+}
+
 #col-one{
     border: 2px solid grey;
     height: 50h;
+    background-color: rgb(0, 183, 255);
  
 }
 
 #col-two {
     border: 2px solid grey;
     height: 50vh;
+    background-color: rgb(0, 238, 255);
 
 }
 
-/* #col-three {
-    border: 5px solid salmon;
-    height: 50vh;  
-} */
-
-
-/* #col-four {
-    border: 5px solid black;
-    height: 50vh;   
-} */
-
-/* #col-four {
-    border: 5px solid black;
-    height: 50vh;   
+#col-three {
+    background-color: aqua; 
 }
+
+
+#col-four {
+    background-color: aqua; 
+     
+}
+
+ #col-four {
+    background-color: aqua; 
+} 
 
 #col-five {
-    border: 5px solid black;
-    height: 50vh;   
+    background-color: aqua; 
 }
 
 #col-six {
-    border: 5px solid black;
-    height: 50vh;   
+    background-color: aqua; 
 }
 
 #col-seven {
-    border: 5px solid black;
-    height: 50vh;   
+    background-color: aqua;  
 }
 
 #col-eight {
-    border: 5px solid black;
-    height: 50vh;   
-} */
+    background-color: aqua;
+    
+} 
 .card-body {
-    /* width: 100%; */
-    padding: 0;
+   background-color: rgb(0, 255, 170); 
+   border-style: double;
+    border-color: black; 
 }
 .card {
     width: fit-content;

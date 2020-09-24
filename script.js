@@ -30,35 +30,35 @@ $("#find-city").on('click', function(cityLocate){
    console.log(response);
     
 
-   var weatherOptions = [response.weather[0].description, response.main.temp, response.main.humidity, response.wind.speed ]
-   var humidity = response.main.humidity
-   var windSpeed = response.wind.speed
-   var currentDescr = response.weather[0].description
-   var temp = response.main.temp.toFixed(0)
+   var weatherOptions = [response.weather[0].description, response.main.temp, response.main.humidity, response.wind.speed ];
+   var humidity = response.main.humidity;
+   var windSpeed = response.wind.speed;
+   var currentDescr = response.weather[0].description;
+   var temp = response.main.temp.toFixed(0);
   //  temp = ((response.main.temp)*1.8 - 459.67).toFixed(0)
-   var cityLat = response.coord.lat
+   var cityLat = response.coord.lat;
   //  console.log(cityLat);
   //  console.log(cityLon);
-   var cityLon = response.coord.lon
+   var cityLon = response.coord.lon;
   //  cityLat = $("city-lat")
   //  cityLon = $("city-lon")
   //  console.log(temp);
   console.log(windSpeed);
    
-   $('#city-name').text("City: " + response.name)
+   $('#city-name').text("City: " + response.name);
    $("#date").text(moment().format("M-D-Y")); 
    $("#city-temperature").text("Temp: " + temp)
-   $("#city-humidity").text("Humidity: " + humidity + "%")
+   $("#city-humidity").text("Humidity: " + humidity + "%");
   // //  console.log(humidity);
-  $("#city-wind-speed").text("Wind Speed: " + windSpeed)
+  $("#city-wind-speed").text("Wind Speed: " + windSpeed.toFixed(0));
 
   $.ajax({
     url: `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=c56b8c5094d7dabc849248635865a867`,
     method: "GET"
     }).then(function(response) {
     console.log(response);
-    var uvIndex = response.daily[0].uvi
-    $("#city-uv-index").text("UV Index: " + uvIndex)
+    var uvIndex = response.daily[0].uvi;
+    $("#city-uv-index").text("UV Index: " + uvIndex);
 
     //set humidity response return 
 
@@ -77,11 +77,11 @@ $("#find-city").on('click', function(cityLocate){
     $("#card-5-humid").text("Humidity: " + humidity5 + "%");
 
     // temperature variable response
-      var temp1 = response.daily[1].temp.max
-      var temp2 = response.daily[2].temp.max
-      var temp3 = response.daily[3].temp.max
-      var temp4 = response.daily[4].temp.max
-      var temp5 = response.daily[5].temp.max
+      var temp1 = response.daily[1].temp.max.toFixed(0)
+      var temp2 = response.daily[2].temp.max.toFixed(0)
+      var temp3 = response.daily[3].temp.max.toFixed(0)
+      var temp4 = response.daily[4].temp.max.toFixed(0)
+      var temp5 = response.daily[5].temp.max.toFixed(0)
 
       // print temp response for five days
 
@@ -90,9 +90,13 @@ $("#find-city").on('click', function(cityLocate){
       $("#card-3-temp").text("Temp: " + temp3);
       $("#card-4-temp").text("Temp: " + temp4);
       $("#card-5-temp").text("Temp: " + temp5);
+
+      // var imgIcon = [
+
+      // ]
     
 
-    var date = response.daily[1].dt
+    var date = response.daily[1].dt;
         // date = moment.unix(date).format("MM/DD/YYYY");
         date = moment().format("MMM Do YY");
   //   console.log(date);
@@ -146,22 +150,66 @@ $("#find-city").on('click', function(cityLocate){
 
    });
 
-  //  $.ajax({
-  //   url: query5Day,
-  //   method: "GET"
-  //   }).then(function(response) {
-  //   // weather5Day = [response.main.temp, response.main.humidity ]
-  //   console.log(response);
-
-    
-  //   });
-   
-
-
-   // weather conditions .weather[0].description, temperature .main.temp, humidity .main.humidity, wind speed .wind.speed, UV index
-
-    // ajaxCall()
-    // var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-    // console.log(temp);
+ 
    
 })
+
+
+
+
+
+//LOCAL STORAGE
+//Lives in the browser window 
+  //each URL gets 10mb of storage space on the local computer
+
+  //Local Storage is an object
+  //it accepts key- value pairs (like a dictionary)
+    // the value must always be a string
+
+  //local storage lives on the window object
+  //so save it to a variable
+  // var ls = window.localStorage
+
+  //LS has 4 methods built into it
+    // .getItem() ---> parse
+    // .setItem() --> stringify
+    //.remove() -->  give a key (deletes one item)
+    //.clear() ---> drops the bomb (delete all storage for the URL)
+
+  
+  //Also have two additional methods 
+  // for adding to LS
+    //JSON.stringify()
+      // ex --> LS.setItem('key', JSON.stringify(value))
+
+  //for taking items out of local storage
+    //JSOn.parse()
+      // --> ex
+        // var retrievedValue = JSON.parse(LS.getItem('key'))
+
+    // var LS = window.localStorage;
+    
+    // var magnusFaveSongs = ['Twist n Shout', 'Yellow Submarine', 'She Loves You']
+
+    // var franksFaveSongs = [ 'Somthing', 'Shes So Heavy', 'Eight days A Week']
+
+
+    // LS.setItem('magnusList', JSON.stringify(magnusFaveSongs))
+    // LS.setItem('franksList', JSON.stringify(franksFaveSongs))
+
+
+
+
+    // var magnusChoices = JSON.parse(LS.getItem('magnusList'))
+
+    // var beatlesEl = document.getElementById('the-fab-four')
+      
+    // for(var i = 0; i < magnusChoices.length; i++){
+    //     var newLi = document.createElement('li')
+    //     newLi.innerHTML = magnusChoices[i]
+    //     beatlesEl.appendChild(newLi)
+    //   }
+
+    // console.log('var frankslist ---->', JSON.parse(LS.getItem('franksList')))
+
+    // console.log('W/o parsing--->', LS.getItem('franksList'))
