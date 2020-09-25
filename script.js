@@ -10,6 +10,17 @@ var cityLon
 var ls = window.localStorage
 cityLat = $("city-lat")
 cityLon = $("city-lon")
+
+// ls.setItem('city save', JSON.stringify(citySelection))
+    var retrievedValue = JSON.parse(ls.getItem('city save'))|| []
+
+    for (var i = 0; i < retrievedValue.length; i++) {
+      var newLi = $("<ul>")
+      newLi.text(retrievedValue[i])
+      $("#col-three").append(newLi)
+
+      
+    }
     
 $("#find-city").on('click', function(cityLocate){
   cityLocate.preventDefault()
