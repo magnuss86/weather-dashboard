@@ -26,7 +26,9 @@
 
 
 .col-2 {
-    background-color: aqua;  
+    background-color: rgb(6, 241, 45);
+    border-style: double; 
+    border-color: black; 
 }
 
 
@@ -41,4 +43,13 @@
 
 .card-img-top {
     background-color: cadetblue;
+}
+
+.uvHigh {
+
+    background-color: red;
+}
+
+.uvLow {
+    background-color: green;
 }
