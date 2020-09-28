@@ -25,18 +25,14 @@ function textBox(event) {
   console.log("textBox");
 var cityName = $("#city-input").val();
 apiCall(cityName)
-for (var i = 0; i < retrievedValue.length; i++) {
-  var newLi = $("<ul>");
-  newLi.text(retrievedValue[i]);
-  $("#col-three").append(newLi);
-}
+
 
 }
 
 function listItem(event) {
 var cityName = event.target.textContent
 apiCall(cityName)
-console.log(cityName);
+console.log(listItem);
 }
 
 function apiCall(cityName) {
@@ -142,6 +138,11 @@ function apiCall(cityName) {
       // console.log(date);
     });
 
+    for (var i = 0; i < retrievedValue.length; i++) {
+      var newLi = $("<ul>");
+      newLi.text(retrievedValue[i]);
+      $("#col-three").append(newLi);
+    }
     //WHAT dod we want to do
     //1. we get the response then we want to use the response object to
     //2. we want to set up two columns
@@ -172,55 +173,3 @@ function apiCall(cityName) {
 }
 $("#find-city").on("click", textBox);
 $("#col-three").on("click", listItem)
-
-//LOCAL STORAGE
-//Lives in the browser window
-//each URL gets 10mb of storage space on the local computer
-
-//Local Storage is an object
-//it accepts key- value pairs (like a dictionary)
-// the value must always be a string
-
-//local storage lives on the window object
-//so save it to a variable
-// var ls = window.localStorage
-
-//LS has 4 methods built into it
-// .getItem() ---> parse
-// .setItem() --> stringify
-//.remove() -->  give a key (deletes one item)
-//.clear() ---> drops the bomb (delete all storage for the URL)
-
-//Also have two additional methods
-// for adding to LS
-//JSON.stringify()
-// ex --> LS.setItem('key', JSON.stringify(value))
-
-//for taking items out of local storage
-//JSOn.parse()
-// --> ex
-// var retrievedValue = JSON.parse(LS.getItem('key'))
-
-// var LS = window.localStorage;
-
-// var magnusFaveSongs = ['Twist n Shout', 'Yellow Submarine', 'She Loves You']
-
-// var franksFaveSongs = [ 'Somthing', 'Shes So Heavy', 'Eight days A Week']
-
-// LS.setItem('magnusList', JSON.stringify(magnusFaveSongs))
-// LS.setItem('franksList', JSON.stringify(franksFaveSongs))
-
-// var retrievedValue = JSON.parse(LS.getItem('key'))
-// var magnusChoices = JSON.parse(LS.getItem('magnusList'))
-
-// var beatlesEl = document.getElementById('the-fab-four')
-
-// for(var i = 0; i < magnusChoices.length; i++){
-//     var newLi = document.createElement('li')
-//     newLi.innerHTML = magnusChoices[i]
-//     beatlesEl.appendChild(newLi)
-//   }
-
-// console.log('var frankslist ---->', JSON.parse(LS.getItem('franksList')))
-
-// console.log('W/o parsing--->', LS.getItem('franksList'))
